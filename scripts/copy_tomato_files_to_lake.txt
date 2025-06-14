@@ -1,0 +1,36 @@
+mkdir ztmp
+mkdir agro
+
+aws s3 cp s3://datalake-nessie-agro/tmp/archive_pv.zip /home/ec2-user/ztmp/pv.zip
+unzip /home/ec2-user/ztmp/pv.zip -d /home/ec2-user/agro/
+
+#Tomato Train
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Tomato___healthy s3://datalake-nessie-agro/raw/agro/tomato/train/Tomato___healthy --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Tomato___Early_blight s3://datalake-nessie-agro/raw/agro/tomato/train/Tomato___Early_blight --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Tomato___Late_blight s3://datalake-nessie-agro/raw/agro/tomato/train/Tomato___Late_blight --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Tomato___Septoria_leaf_spot s3://datalake-nessie-agro/raw/agro/tomato/train/Tomato___Septoria_leaf_spot --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Tomato___Bacterial_spot s3://datalake-nessie-agro/raw/agro/tomato/train/Tomato___Bacterial_spot --recursive
+
+#Tomato Val
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Tomato___healthy s3://datalake-nessie-agro/raw/agro/tomato/val/Tomato___healthy --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Tomato___Early_blight s3://datalake-nessie-agro/raw/agro/tomato/val/Tomato___Early_blight --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Tomato___Late_blight s3://datalake-nessie-agro/raw/agro/tomato/val/Tomato___Late_blight --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Tomato___Septoria_leaf_spot s3://datalake-nessie-agro/raw/agro/tomato/val/Tomato___Septoria_leaf_spot --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Tomato___Bacterial_spot s3://datalake-nessie-agro/raw/agro/tomato/val/Tomato___Bacterial_spot --recursive
+
+
+------------
+
+#Potato Train
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Potato___Early_blight s3://datalake-nessie-agro/raw/agro/potato/train/Potato___Early_blight --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Potato___healthy s3://datalake-nessie-agro/raw/agro/potato/train/Potato___healthy --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/train/Potato___Late_blight s3://datalake-nessie-agro/raw/agro/potato/train/Potato___Late_blight --recursive
+
+
+#Potato Val
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Potato___Early_blight s3://datalake-nessie-agro/raw/agro/potato/val/Potato___Early_blight --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Potato___healthy s3://datalake-nessie-agro/raw/agro/potato/val/Potato___healthy --recursive
+aws s3 cp /home/ec2-user/agro/PlantVillage/val/Potato___Late_blight s3://datalake-nessie-agro/raw/agro/potato/val/Potato___Late_blight --recursive
+
+
+------------
