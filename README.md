@@ -6,9 +6,9 @@ This project demonstrates how to use Deep Learning techniques to analyze images 
 
 ## Prerequisites
 
-- AWS Account with appropriate permissions
-- Familiarity with Amazon SageMaker and Deep Learning
-- Download the datasets and upload to Amazon S3
+- AWS Account with appropriate permissions.
+- Familiarity with Amazon SageMaker and Convolutional neural network (CNN).
+- Download the datasets and upload to Amazon S3.
 
 
 ---
@@ -69,6 +69,15 @@ Amazon SageMaker:
 The PlantVillage dataset consists of 54303 healthy and unhealthy leaf images divided into 38 categories by species and disease.
 
 - [The PlantVillage dataset](https://data.mendeley.com/datasets/tywbtsjrjv/1)
+
+---
+
+## References
+
+This project used as reference the following research materials and experiments:
+
+- [Amgad Shalaby](https://www.linkedin.com/in/amgad-shalaby-711287228/)
+- [Shandong Agricultural University](http://english.sdau.edu.cn/)
 
 ---
 
