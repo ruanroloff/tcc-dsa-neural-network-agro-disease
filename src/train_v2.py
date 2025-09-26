@@ -12,9 +12,10 @@ from tensorflow.keras.metrics import CategoricalAccuracy, Precision, Recall
 
 def model_fn(num_classes, image_size):
     base_model = EfficientNetV2B0(weights='imagenet', include_top=False, input_shape=(image_size, image_size, 3))
-    set_trainable = False
+    #For efficientnet_v2 -> we changed the frozen layers.
     for layer in base_model.layers:
-        if layer.name == 'block6a_expand_conv':
+        #if layer.name == 'block6a_expand_conv':
+        if layer.name == 'block4a_expand_conv':
             set_trainable = True
         layer.trainable = set_trainable
 
@@ -82,11 +83,11 @@ def main(args):
     callbacks = [
         EarlyStopping(min_delta=1e-5, patience=15, restore_best_weights=True),
         ModelCheckpoint(os.path.join(args.model_dir, 'best_model.h5'), save_best_only=True),
-        ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=4, min_lr=0.001)
+        #For efficientnet_v2, we changed the min_lr to avoind overfitting .
+        ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=4, min_lr=0.0004)
     ]
 
     model.fit(train_generator, validation_data=val_generator, epochs=epochs, callbacks=callbacks)
-    #model.fit(train_generator, validation_data=val_generator, epochs=epochs)
     model.save(os.path.join(args.model_dir, 'model.h5'))
 
 if __name__ == '__main__':

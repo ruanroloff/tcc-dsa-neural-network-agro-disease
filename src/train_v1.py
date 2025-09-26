@@ -87,7 +87,6 @@ def main(args):
     ]
 
     model.fit(train_generator, validation_data=val_generator, epochs=epochs, callbacks=callbacks)
-    #model.fit(train_generator, validation_data=val_generator, epochs=epochs)
     model.save(os.path.join(args.model_dir, 'model.h5'))
 
 if __name__ == '__main__':
