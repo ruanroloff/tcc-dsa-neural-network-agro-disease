@@ -1,1 +1,15 @@
-weights
+#weights
+########
+
+## Fix error: Exception URL fetch failure on https://github.com/Callidior/keras-applications/releases/download/efficientnet/efficientnet-b0_weights_tf_dim_ordering_tf_kernels_autoaugment_notop.h5: 404 -- Not Found"
+## Add these lines to the train.py code for efficient-net-b0 v1
+
+url = "https://raw.githubusercontent.com/ruanroloff/tcc-dsa-neural-network-agro-disease/refs/heads/main/libs/efficientnet-b0_weights_tf_dim_ordering_tf_kernels_autoaugment_notop.h5"
+
+weights_path = tf.keras.utils.get_file(
+    fname="efficientnet-b0-notop.h5",  # local filename
+    origin=url
+)
+
+base_model = efn.EfficientNetB0(weights=None, include_top=False, input_shape=(image_size, image_size, 3))
+base_model.load_weights(weights_path)
